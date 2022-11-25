@@ -2,4 +2,11 @@
   min-width: 320px;
   max-width: 1280px;
   margin: auto;
+  padding-top: 45px;
+}
+
+@media screen and (max-width: 950px) {
+  .page__container {
+    padding-top: 28px ;
+  }
 }
