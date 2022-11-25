@@ -1,0 +1,21 @@
+.profile {
+  /* background-color: blueviolet; */
+  max-width: 880px;
+  margin: auto;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+@media screen and (max-width: 950px) {
+  .profile {
+    padding: 40px 19px 0;
+  }
+}
+
+@media screen and (max-width:670px) {
+  .profile {
+    flex-direction: column;
+  }
+}
