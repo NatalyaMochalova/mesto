@@ -18,7 +18,7 @@
 
 ---
 
-**[Сcылка](https://natalyamochalova.github.io/russian-travel/) на GitHub Pages**
+**[Сcылка](https://natalyamochalova.github.io/mesto/) на GitHub Pages**
 
 ---
 
