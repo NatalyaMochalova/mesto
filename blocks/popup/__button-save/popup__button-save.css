@@ -9,6 +9,14 @@
   text-align: center;
   color: white;
   padding: 0;
+  -webkit-transition: .4s ease;
+  -o-transition: .4s ease;
+  transition: .4s ease;
+}
+
+.popup__button-save:hover {
+  opacity: .8;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 550px) {
