@@ -11,19 +11,15 @@ function closePopup() {
   popup.classList.remove('popup_opened');
 }
 
-buttonEdit.addEventListener('click', openPopup);
-buttonClose.addEventListener('click', closePopup);
-
 /* редактирование данных в popup */
 let formElement = document.querySelector('.popup__form');
 let nameInput = formElement.querySelector('.popup__input_type_name');
 let aboutMeInput = formElement.querySelector('.popup__input_type_about-me');
+let nameProfile = document.querySelector('.profile__title');
+let aboutMeProfile = document.querySelector('.profile__subtitle');
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
-
-  let nameProfile = document.querySelector('.profile__title');
-  let aboutMeProfile = document.querySelector('.profile__subtitle');
 
   nameProfile.textContent = nameInput.value;
   aboutMeProfile.textContent = aboutMeInput.value;
@@ -31,6 +27,8 @@ function formSubmitHandler (evt) {
   closePopup();
 }
 
+buttonEdit.addEventListener('click', openPopup);
+buttonClose.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
 
