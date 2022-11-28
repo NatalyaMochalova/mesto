@@ -3,4 +3,6 @@
   -o-object-fit: cover;
     object-fit: cover;
   margin-bottom: 25px;
+  width: 282px;
+  height: 282px;
 }
