@@ -74,18 +74,23 @@ const initialCards = [
 ];
 
 const createCard = (element) => {
-  return `<article class="element">
+  const string = `<article class="element">
     <button class="element__trash" type="button"></button>
-    <img alt="фото" class="element__image" src="${element.link}">
+    <img alt="фото" class="element__image">
     <div class="element__content">
-      <h2 class="element__title">${element.name}</h2>
+      <h2 class="element__title"></h2>
       <button class="element__like" type="button"></button>
     </div>
   </article>`
+  const container = document.createElement('div');
+  container.innerHTML = string;
+  container.querySelector('.element__title').textContent = element.name;
+  container.querySelector('.element__image').src = element.link;
+  return container.firstElementChild;
 }
 
 const renderCard = (name, link) => {
-  cardsContainer.insertAdjacentHTML('beforeend', createCard(name, link));
+  cardsContainer.append(createCard(name, link));
 }
 
 initialCards.forEach((name, link) => {
