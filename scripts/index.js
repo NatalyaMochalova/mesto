@@ -6,6 +6,7 @@ const buttonCreate = document.querySelector('.popup__button-create');
 const buttonClose = document.querySelector('.popup__button-close');
 const buttonCloseNewPlace = document.querySelector('.popup__button-close-new-place');
 let formElement = document.querySelector('.popup__form');
+const formElementNewPlace = document.querySelector('.popup__form-new-place');
 let nameInput = formElement.querySelector('.popup__input_type_name');
 let aboutMeInput = formElement.querySelector('.popup__input_type_about-me');
 let titleInput = formElement.querySelector('.popup__input_type_title');
@@ -14,6 +15,7 @@ let nameProfile = document.querySelector('.profile__title');
 let aboutMeProfile = document.querySelector('.profile__subtitle');
 const cardsContainer = document.querySelector('.elements');
 const cardTemplate = document.querySelector('#element').content;
+
 
 /* открытие и закрытие popup */
 function openPopup() {
@@ -72,33 +74,32 @@ const initialCards = [
 ];
 
 const createCard = (element) => {
-  const article = document.createElement('article');
-  article.classList.add('element');
-  const buttonTrash = document.createElement('button');
-  buttonTrash.classList.add('element__trash');
-  const image = document.createElement('img');
-  image.classList.add('element__image');
-  image.src = element.link;
-  const div = document.createElement('div');
-  div.classList.add('element__content');
-  const title = document.createElement('h2');
-  title.classList.add('element__title');
-  title.textContent = element.name;
-  const buttonLike = document.createElement('button');
-  buttonLike.classList.add('element__like');
-
-  article.append(buttonTrash, image, div);
-  div.append(title, buttonLike);
-  return article;
+  return `<article class="element">
+    <button class="element__trash" type="button"></button>
+    <img alt="фото" class="element__image" src="${element.link}">
+    <div class="element__content">
+      <h2 class="element__title">${element.name}</h2>
+      <button class="element__like" type="button"></button>
+    </div>
+  </article>`
 }
 
 const renderCard = (name, link) => {
-  cardsContainer.append(createCard(name, link))
+  cardsContainer.insertAdjacentHTML('beforeend', createCard(name, link));
 }
 
 initialCards.forEach((name, link) => {
   renderCard(name, link);
 })
+
+/* const addCard = (evt) => {
+  evt.preventDefault();
+  const cardImage = linkInput.value;
+  const cardTitle = titleInput.value;
+
+  renderCard(cardImage, cardTitle);
+  closePopup();
+} */
 
 
 /* const renderCard (name, link) {
@@ -121,19 +122,13 @@ initialCards.forEach(function (element) {
   cardsContainer.append(cardElement);
 }); */
 
-/* function addCard (evt) {
-  evt.preventDefault();
-
-
-  closePopupNewPlace();
-} */
 
 buttonEdit.addEventListener('click', openPopup);
 buttonClose.addEventListener('click', closePopup);
 buttonAdd.addEventListener('click', openPopupNewPlace);
 buttonCloseNewPlace.addEventListener('click', closePopupNewPlace);
 formElement.addEventListener('submit', formSubmitHandler);
-
+formElementNewPlace.addEventListener('submit', addCard);
 
 
 
